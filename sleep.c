@@ -22,7 +22,7 @@ const uint DELAY_FACTOR = 4;
 int msleep(int __miliseconds)
 {
     return usleep(__miliseconds * 1000);
-};
+}
 
 int main(const int argc, const char** argv)
 {

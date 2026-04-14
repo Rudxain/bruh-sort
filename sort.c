@@ -17,7 +17,7 @@ void swap_chars(char* a, char* b)
     char tmp = *a;
     *a = *b;
     *b = tmp;
-};
+}
 
 //Reverse a string in-place.
 //`len` is the number of chars to reverse (excluding `NULL` terminator).
@@ -25,7 +25,7 @@ void strrev_in_place(char* s, const size_t len)
 {
     for (size_t i = 0u; i < len/2u; i++)
         swap_chars(s + i, s + (len-1 - i));
-};
+}
 
 //(decimal)
 const uint8_t UINT32_MAX_DIGITS = 10u;
@@ -44,7 +44,7 @@ uint8_t u32toa(uint32_t n, char* s)
     // convert to big-endian
     strrev_in_place(s, i);
     return i;
-};
+}
 
 int main(const int argc, const char** argv)
 {
