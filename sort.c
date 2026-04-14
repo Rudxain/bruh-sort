@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <time.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <sys/wait.h>
 
@@ -27,15 +28,15 @@ void strrev_in_place(char* s, const size_t len)
 };
 
 //(decimal)
-const u_int8_t UINT32_MAX_DIGITS = 10u;
-const u_int8_t BUF_SIZE = UINT32_MAX_DIGITS + 1u;
+const uint8_t UINT32_MAX_DIGITS = 10u;
+const uint8_t BUF_SIZE = UINT32_MAX_DIGITS + 1u;
 
 //Format uint32 to decimal string.
 //`s` is the `len >= BUF_SIZE` buffer where digits will be placed.
 //returns len of `s`, for potential performance.
-u_int8_t u32toa(u_int32_t n, char* s)
+uint8_t u32toa(uint32_t n, char* s)
 {
-    u_int8_t i = 0u;
+    uint8_t i = 0u;
     do s[i++] = '0' + (n % 10u);
     while ((n /= 10u) != 0u);
 
@@ -56,7 +57,7 @@ int main(const int argc, const char** argv)
     printf("unsorted array:\n");
     int min = atoi(argv[1]);
     const uint arr_len = n - 1u;
-    u_int32_t* arr = malloc(arr_len * sizeof(u_int32_t));
+    uint32_t* arr = malloc(arr_len * sizeof(uint32_t));
     for(uint i = 1; i < n; i++)
     {
         int tmp = atoi(argv[i]);
